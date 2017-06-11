@@ -10,7 +10,8 @@ COPY nginx.sh /opt/scripts/nginx.sh
 COPY nginx/fastcgi_params /etc/nginx/fastcgi_params
 COPY nginx/nginx.conf /etc/nginx/nginx.conf
 
-ENV FRAMEWORK=drupal
+ENV FRAMEWORK=drupal\
+    DOCROOT=.
 
 ENTRYPOINT ["/opt/scripts/nginx.sh"]
 
