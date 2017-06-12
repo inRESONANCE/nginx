@@ -11,7 +11,7 @@ COPY nginx/fastcgi_params /etc/nginx/fastcgi_params
 COPY nginx/nginx.conf /etc/nginx/nginx.conf
 
 ENV FRAMEWORK=drupal\
-    DOCROOT=.
+    DOCROOT=/var/www/
 
 ENTRYPOINT ["/opt/scripts/nginx.sh"]
 
