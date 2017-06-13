@@ -13,6 +13,8 @@ COPY nginx/nginx.conf /etc/nginx/nginx.conf
 ENV FRAMEWORK=drupal\
     DOCROOT=/var/www/
 
+EXPOSE 80 443
+
 ENTRYPOINT ["/opt/scripts/nginx.sh"]
 
 CMD ["-g","daemon off;"]
