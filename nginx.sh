@@ -8,6 +8,7 @@ fi
 
 cp /opt/nginx/${FRAMEWORK}.conf /etc/nginx/conf.d/default.conf
 
+mkdir -p /certs
 # Set up our certs for the server with nginx
 if [ ! -f "/certs/server.pem" ]; then
   openssl genrsa -out /certs/server.key 2048 && \
