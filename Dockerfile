@@ -1,5 +1,18 @@
 FROM nginx:1.13.1-perl
 
+RUN \
+    DEBIAN_FRONTEND=noninteractive apt-get update && \
+    DEBIAN_FRONTEND=noninteractive apt-get -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" -y --force-yes --no-install-recommends install \
+    openssl \
+    && DEBIAN_FRONTEND=noninteractive apt-get -y clean \
+    && DEBIAN_FRONTEND=noninteractive apt-get -y autoclean \
+    && DEBIAN_FRONTEND=noninteractive apt-get -y autoremove \
+    && rm -rf /var/lib/apt/lists/*\
+    && rm -rf \
+    && rm -rf /var/lib/cache/* \
+    && rm -rf /var/lib/log/* \
+    && rm -rf /tmp/*
+
 RUN mkdir -p /opt/scripts
 
 RUN mkdir /certs
